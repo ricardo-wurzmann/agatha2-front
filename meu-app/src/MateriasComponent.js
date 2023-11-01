@@ -4,7 +4,9 @@ import axios from 'axios';
 function MateriasComponent() {
   const [materias, setMaterias] = useState([]);
   const [submaterias, setSubmaterias] = useState([]);
+  const [questoes, setQuestoes] = useState([]);
   const [materiaSelecionada, setMateriaSelecionada] = useState(null);
+  const [submateriaSelecionada, setSubmateriaSelecionada] = useState(null);
 
   useEffect(() => {
     async function carregarMaterias() {
@@ -31,6 +33,20 @@ function MateriasComponent() {
     carregarSubmaterias();
   }, [materiaSelecionada]);
 
+  useEffect(() => {
+    async function carregarQuestoes() {
+      if (!materiaSelecionada || !submateriaSelecionada) return;
+      try {
+        const { data } = await axios.get(`http://localhost:3005/questoes/${materiaSelecionada}/${submateriaSelecionada}`);
+        console.log("Dados das questões:", data); // Adicionado para depuração
+        setQuestoes(data);
+      } catch (error) {
+        console.error('Erro ao carregar questões', error);
+      }
+    }    
+    carregarQuestoes();
+  }, [submateriaSelecionada]);
+
   return (
     <div>
       <h2>Matérias</h2>
@@ -46,10 +62,22 @@ function MateriasComponent() {
           <h3>Submatérias de {materiaSelecionada}</h3>
           <ul>
             {submaterias.map(submateria => (
-              <li key={submateria.submateria}>
+              <li key={submateria.submateria} onClick={() => setSubmateriaSelecionada(submateria.submateria)}>
                 {submateria.submateria}
               </li>
             ))}
+          </ul>
+        </div>
+      )}
+      {submateriaSelecionada && (
+        <div>
+          <h4>Questões de {submateriaSelecionada}</h4>
+          <ul>
+          {questoes.map((questao, index) => (
+            <li key={index}>
+              {questao.questao}
+            </li>
+          ))}
           </ul>
         </div>
       )}
