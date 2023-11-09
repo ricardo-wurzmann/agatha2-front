@@ -38,7 +38,6 @@ function MateriasComponent() {
       if (!materiaSelecionada || !submateriaSelecionada) return;
       try {
         const { data } = await axios.get(`http://localhost:3005/questoes/${materiaSelecionada}/${submateriaSelecionada}`);
-        console.log("Dados das questões:", data); // Adicionado para depuração
         setQuestoes(data);
       } catch (error) {
         console.error('Erro ao carregar questões', error);
@@ -72,13 +71,18 @@ function MateriasComponent() {
       {submateriaSelecionada && (
         <div>
           <h4>Questões de {submateriaSelecionada}</h4>
-          <ul>
-          {questoes.map((questao, index) => (
-            <li key={index}>
-              {questao.questao}
-            </li>
+          {questoes.slice(0, 5).map((questao, index) => (
+            <div key={index} className="questao">
+              <p>{questao.texto_da_questao}</p>
+              <ul>
+                <li>{questao.opcao_a}</li>
+                <li>{questao.opcao_b}</li>
+                <li>{questao.opcao_c}</li>
+                <li>{questao.opcao_d}</li>
+                <li>{questao.opcao_e}</li>
+              </ul>
+            </div>
           ))}
-          </ul>
         </div>
       )}
     </div>
@@ -86,3 +90,4 @@ function MateriasComponent() {
 }
 
 export default MateriasComponent;
+
