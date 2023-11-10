@@ -45,10 +45,13 @@ function QuestoesPage() {
         </div>
       ))}
       {!mostrarTodas && (
-        <button className="botao-redondo" onClick={() => setMostrarTodas(true)}>
+      <div class="botao-container">
+      <button className="botao-ver-todas" onClick={() => setMostrarTodas(true)}>
         Ver todas as questões
       </button>
-      
+     </div>
+
+
       )}
     </div>
   );

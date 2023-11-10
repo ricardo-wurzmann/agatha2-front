@@ -68,21 +68,28 @@ div.questao ul {
   padding: 20px; /* Espaçamento ao redor da grade */
 }
 
+
 .materia-item {
+  flex: 1; /* Faz cada card crescer igualmente */
+  min-width: 150px; /* Largura mínima para os cards */
+  height: 100px; /* Altura fixa para os cards */
+  background-color: #2883d8;
+  border-radius: 10px; /* Bordas arredondadas para os cards */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil para os cards */
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  background-color: #007bff; /* Cor de fundo de exemplo */
-  color: white;
-  padding: 20px;
-  border-radius: 10px; /* Cantos arredondados */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra de exemplo */
-  text-align: center;
+  padding: 20px; /* Espaçamento interno */
 }
 
+.card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra mais proeminente ao passar o mouse */
+}
+
+
+
 .materia-item:hover {
-  background-color: #0056b3; /* Cor de fundo ao passar o mouse */
+  background-color: #09407b; /* Cor de fundo ao passar o mouse */
   cursor: pointer;
 }
 
@@ -197,23 +204,26 @@ header {
   cursor: pointer;
 }
 
-
-.botao-redondo {
-  display: block; /* Faz o botão ser um bloco para poder centralizá-lo */
-  margin: 20px auto; /* Centraliza o botão horizontalmente e adiciona espaço vertical */
-  padding: 15px; /* Espaçamento interno para formar um círculo; ajuste conforme necessário */
-  width: 130px; /* Largura do botão para torná-lo um círculo; ajuste conforme necessário */
-  height: 80px; /* Altura do botão para torná-lo um círculo; ajuste conforme necessário */
-  border-radius: 50%; /* Torna o botão redondo */
-  border: none; /* Remove a borda padrão */
-  background-color: #808080; /* Cor de fundo cinza */
-  color: white; /* Cor do texto */
-  font-size: 16px; /* Tamanho da fonte; pode precisar ajustar se o texto for muito longo */
-  cursor: pointer; /* Muda o cursor para indicar que é clicável */
-  text-align: center; /* Alinha o texto ao centro */
-  line-height: 30px; /* Ajusta a altura da linha para centralizar o texto verticalmente */
+/* Contêiner do botão */
+.botao-container {
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente se desejar que seja centralizado na tela inteira */
 }
 
-.botao-redondo:hover {
-  background-color: #696969; /* Cor de fundo ao passar o mouse, um cinza mais escuro */
+/* Estilo do botão */
+.botao-ver-todas {
+  padding: 10px 20px;
+  background-color: #f0f0f0; /* Cor de fundo cinza claro */
+  border: none;
+  border-radius: 20px; /* Bordas arredondadas */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block; /* Permite que o botão seja centralizado pelo contêiner flex */
 }
+
+.botao-ver-todas:hover {
+  background-color: #e0e0e0; /* Cor de fundo um pouco mais escura ao passar o mouse */
+}
+
