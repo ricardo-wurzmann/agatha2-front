@@ -24,7 +24,6 @@ function MateriasComponent() {
 
   return (
     <div className="container-materias">
-      <h2>Matérias</h2>
       {materias.map((materia, index) => (
         <div 
           className="materia-item" 

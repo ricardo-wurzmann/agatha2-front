@@ -8,11 +8,25 @@ import QuestoesPage from './QuestoesPage';
 function App() {
   return (
     <Router>
-      <Header /> {/* Adicione o Header aqui */}
       <Routes>
-        <Route path="/" element={<MateriasComponent />} />
-        <Route path="/submaterias/:materia" element={<SubmateriasPage />} />
-        <Route path="/questoes/:materia/:submateria" element={<QuestoesPage />} />
+        <Route path="/" element={
+          <>
+            <Header title="Matérias" /> {/* Adicione o Header com o título "Matérias" */}
+            <MateriasComponent />
+          </>
+        } />
+        <Route path="/submaterias/:materia" element={
+          <>
+            <Header title="Submatérias" /> {/* O título "Submatérias" é genérico, você pode querer torná-lo dinâmico */}
+            <SubmateriasPage />
+          </>
+        } />
+        <Route path="/questoes/:materia/:submateria" element={
+          <>
+            <Header title="Questões" /> {/* O título "Questões" é genérico, você pode querer torná-lo dinâmico */}
+            <QuestoesPage />
+          </>
+        } />
       </Routes>
     </Router>
   );

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
+import Header from './Header'; // Não se esqueça de importar o Header
 
 function SubmateriasPage() {
   const [submaterias, setSubmaterias] = useState([]);
@@ -25,7 +26,7 @@ function SubmateriasPage() {
 
   return (
     <div className="container-materias">
-      <h2>Submatérias de {materia}</h2>
+      <Header title={`Submatérias de ${materia}`} /> 
       {submaterias.map((submateria, index) => (
         <div 
           className="materia-item" 

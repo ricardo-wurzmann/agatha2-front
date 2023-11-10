@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import Header from './Header'; // Não se esqueça de importar o Header
 
 function QuestoesPage() {
   const [questoes, setQuestoes] = useState([]);
@@ -25,8 +26,7 @@ function QuestoesPage() {
 
   return (
     <div>
-      {/* Supondo que 'materia' seja o nome da matéria e esteja disponível aqui */}
-      <h4>Questões de {submateria}</h4>
+      <Header title={`Questões de ${submateria}`} /> 
       {questoes.map((questao, index) => (
         <div key={index} className="questao-container">
           <div className="questao-header">
@@ -45,7 +45,10 @@ function QuestoesPage() {
         </div>
       ))}
       {!mostrarTodas && (
-        <button onClick={() => setMostrarTodas(true)}>Ver todas as questões</button>
+        <button className="botao-redondo" onClick={() => setMostrarTodas(true)}>
+        Ver todas as questões
+      </button>
+      
       )}
     </div>
   );

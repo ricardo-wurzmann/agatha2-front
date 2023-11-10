@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './App.css'; // Certifique-se de ter o arquivo CSS para estilização
+import './App.css';
 
-function Header() {
+// Adiciona a prop 'title' ao componente Header
+function Header({ title }) {
   const [pesquisa, setPesquisa] = useState('');
   const navigate = useNavigate();
 
@@ -23,12 +24,18 @@ function Header() {
   return (
     <header>
       <div className="header-buttons">
-        <button onClick={voltarParaHome}>Home</button>
-        <button onClick={() => navigate(-1)}>Voltar</button>
+        <div className="likes-btn" onClick={voltarParaHome}>
+          <img src={`${process.env.PUBLIC_URL}/home.png`} alt="Home" />
+        </div>
+        <div className="likes-btn" onClick={() => navigate(-1)}>
+          <img src={`${process.env.PUBLIC_URL}/voltar.png`} alt="Voltar" />
+        </div>
       </div>
+      {/* Exibe o título dinâmico */}
+      {title && <h1 className="titulo-header">{title}</h1>}
       <form onSubmit={pesquisar} className="search-form">
         <input type="text" value={pesquisa} onChange={handlePesquisaChange} placeholder="Pesquisar matéria" />
-        <button type="submit">Pesquisar</button>
+        <button type="submit" className='pesquisar'>Pesquisar</button>
       </form>
     </header>
   );
