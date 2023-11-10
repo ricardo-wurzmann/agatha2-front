@@ -24,15 +24,17 @@ function SubmateriasPage() {
   };
 
   return (
-    <div>
-      <h3>Submatérias de {materia}</h3>
-      <ul>
-        {submaterias.map(submateria => (
-          <li key={submateria.submateria} onClick={() => handleSubmateriaClick(submateria.submateria)}>
-            {submateria.submateria}
-          </li>
-        ))}
-      </ul>
+    <div className="container-materias">
+      <h2>Submatérias de {materia}</h2>
+      {submaterias.map((submateria, index) => (
+        <div 
+          className="materia-item" 
+          key={index}
+          onClick={() => handleSubmateriaClick(submateria.submateria)}
+        >
+          <div className="materia-nome">{submateria.submateria}</div>
+        </div>
+      ))}
     </div>
   );
 }

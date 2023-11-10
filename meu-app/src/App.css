@@ -59,3 +59,80 @@ div.questao ul {
   padding-left: 20px;
 }
 
+/* Adicione isto ao seu arquivo CSS principal */
+.container-materias {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajuste o minmax para o tamanho que desejar */
+  gap: 20px; /* Espaçamento entre os itens */
+  padding: 20px; /* Espaçamento ao redor da grade */
+}
+
+.materia-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #007bff; /* Cor de fundo de exemplo */
+  color: white;
+  padding: 20px;
+  border-radius: 10px; /* Cantos arredondados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra de exemplo */
+  text-align: center;
+}
+
+.materia-item:hover {
+  background-color: #0056b3; /* Cor de fundo ao passar o mouse */
+  cursor: pointer;
+}
+
+.materia-nome {
+  font-size: 24px; /* Tamanho do texto */
+  font-weight: bold;
+}
+
+.materia-quantidade {
+  font-size: 18px; /* Tamanho do número de questões */
+}
+
+/* Estilo para o contêiner da questão */
+.questao-container {
+  background-color: #f9bb81;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px;
+}
+
+/* Estilo para o cabeçalho da questão com matéria e submatéria */
+.questao-header {
+  background-color: #f6a04e;
+  color: white;
+  padding: 8px 16px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  font-size: 0.9em; /* Tamanho da fonte menor para o cabeçalho */
+}
+
+/* Estilo para o texto da questão */
+.questao-texto {
+  margin-top: 20px; /* Espaço entre o cabeçalho e o texto da questão */
+}
+
+/* Estilo para as opções de resposta */
+.questao-opcoes {
+  list-style: none;
+  padding: 0;
+}
+
+.questao-opcoes li {
+  background-color: white;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.questao-opcoes li:hover {
+  background-color: #f7cda0; /* Cor de fundo ao passar o mouse */
+}

@@ -23,15 +23,17 @@ function MateriasComponent() {
   };
 
   return (
-    <div>
+    <div className="container-materias">
       <h2>Matérias</h2>
-      <ul>
-        {materias.map(materia => (
-          <li key={materia.materia} onClick={() => handleMateriaClick(materia.materia)}>
-            {materia.materia}
-          </li>
-        ))}
-      </ul>
+      {materias.map((materia, index) => (
+        <div 
+          className="materia-item" 
+          key={index} 
+          onClick={() => handleMateriaClick(materia.materia)}
+        >
+          <div className="materia-nome">{materia.materia}</div>
+        </div>
+      ))}
     </div>
   );
 }
